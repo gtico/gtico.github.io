@@ -38,3 +38,45 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.fade-in-up').forEach(el => {
   observer.observe(el);
 });
+
+// Image Modal Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const imageModal = document.getElementById('image-modal');
+    if (imageModal) {
+        const modalImage = document.getElementById('modal-image');
+        const modalCloseButton = document.getElementById('modal-close-button');
+        const pastEventImages = document.querySelectorAll('.past-event-image');
+
+        pastEventImages.forEach(img => {
+            img.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default link behavior if wrapped in <a>
+                modalImage.src = img.src;
+                imageModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling background
+            });
+        });
+
+        const closeModal = () => {
+            imageModal.classList.add('hidden');
+            modalImage.src = ""; // Clear src to avoid showing old image briefly
+            document.body.style.overflow = ''; // Restore scrolling
+        };
+
+        modalCloseButton.addEventListener('click', closeModal);
+
+        // Close modal when clicking on the background overlay
+        imageModal.addEventListener('click', (e) => {
+            // Check if the click is on the dark background itself
+            if (e.target === imageModal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !imageModal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    }
+});
