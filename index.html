@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Institut Onco Occitanie</title>
+    <title>GT-ICO</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -35,17 +35,7 @@
         },
       }
     </script>
-    <style>
-      #main-header.scrolled {
-          background-color: rgba(15, 23, 42, 0.8); /* slate-900 with opacity */
-          backdrop-filter: blur(10px);
-          box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-      }
-      .stagger-1 { animation-delay: 100ms; }
-      .stagger-2 { animation-delay: 200ms; }
-      .stagger-3 { animation-delay: 300ms; }
-      .stagger-4 { animation-delay: 400ms; }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
   <body class="bg-brand-dark text-brand-light font-sans leading-relaxed">
     <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-5"></div>
@@ -53,14 +43,14 @@
       <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 bg-transparent">
         <div class="container mx-auto px-4">
           <div class="flex items-center justify-between h-20">
-            <a href="#" class="flex items-center space-x-2">
+            <a href="index.html" class="flex items-center space-x-2">
               <svg class="w-10 h-10 text-brand-primary" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.28-.14-1.32-.6-1.32-1.39v-2.1l1.44-1.8c.24-.3.24-.71 0-1.01l-1.44-1.8v-1.5c0-.99-1.42-1.5-2.07-1.04l-1.62 1.18-1.12-1.3c-.33-.4-1.02-.4-1.35 0L8.3 8.65l-1.46-1.19c-.64-.46-1.95.05-1.95 1.04v1.5L3.45 12c-.24.3-.24.71 0 1.01l1.44 1.8v2.1c0 .79-1.04 1.25-1.32 1.39-.42.21-.68.63-.68 1.1v.01c0 .83.67 1.5 1.5 1.5h12c.83 0 1.5-.67 1.5-1.5v-.01c0-.47-.26-.89-.68-1.1z"/></svg>
               <span class="text-xl font-bold tracking-wider text-white">ONCO</span>
             </a>
             <nav class="hidden md:flex items-center space-x-6">
-              <a href="#" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors duration-300">Accueil</a>
+              <a href="index.html" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors duration-300">Accueil</a>
               <a href="#" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors duration-300">Recherche</a>
-              <a href="#" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors duration-300">Formations</a>
+              <a href="membre.html" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors duration-300">Membres</a>
               <a href="#" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors duration-300">Événements</a>
               <a href="#" class="px-4 py-2 text-sm font-semibold text-white bg-brand-primary hover:bg-amber-400 rounded-md shadow-md transition-all duration-300 transform hover:scale-105">Prendre RDV</a>
             </nav>
@@ -70,9 +60,9 @@
           </div>
           <!-- Mobile Menu -->
           <div id="mobile-menu" class="hidden md:hidden py-4">
-            <a href="#" class="block py-2 text-slate-300 hover:text-brand-primary">Accueil</a>
+            <a href="index.html" class="block py-2 text-slate-300 hover:text-brand-primary">Accueil</a>
             <a href="#" class="block py-2 text-slate-300 hover:text-brand-primary">Recherche</a>
-            <a href="#" class="block py-2 text-slate-300 hover:text-brand-primary">Formations</a>
+            <a href="membre.html" class="block py-2 text-slate-300 hover:text-brand-primary">Membres</a>
             <a href="#" class="block py-2 text-slate-300 hover:text-brand-primary">Événements</a>
             <a href="#" class="mt-4 block w-full text-center px-4 py-2 text-sm font-semibold text-white bg-brand-primary hover:bg-amber-400 rounded-md shadow-md">Prendre RDV</a>
           </div>
@@ -225,7 +215,7 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div class="md:col-span-1 mb-6 md:mb-0">
-                     <a href="#" class="flex items-center space-x-2">
+                     <a href="index.html" class="flex items-center space-x-2">
                         <svg class="w-8 h-8 text-brand-primary" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.28-.14-1.32-.6-1.32-1.39v-2.1l1.44-1.8c.24-.3.24-.71 0-1.01l-1.44-1.8v-1.5c0-.99-1.42-1.5-2.07-1.04l-1.62 1.18-1.12-1.3c-.33-.4-1.02-.4-1.35 0L8.3 8.65l-1.46-1.19c-.64-.46-1.95.05-1.95 1.04v1.5L3.45 12c-.24.3-.24.71 0 1.01l1.44 1.8v2.1c0 .79-1.04 1.25-1.32 1.39-.42.21-.68.63-.68 1.1v.01c0 .83.67 1.5 1.5 1.5h12c.83 0 1.5-.67 1.5-1.5v-.01c0-.47-.26-.89-.68-1.1z"/></svg>
                         <span class="text-lg font-bold tracking-wider text-white">ONCO</span>
                     </a>
@@ -267,29 +257,6 @@
         </div>
       </footer>
     </div>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-
-        // Sticky header style on scroll
-        const header = document.getElementById('main-header');
-        if (header) {
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-        }
-      });
-    </script>
+    <script src="assets/js/main.js" defer></script>
 </body>
 </html>

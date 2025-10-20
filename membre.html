@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Membres - GT-ICO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-primary': '#F59E0B', // amber-500
+              'brand-secondary': '#6366F1', // indigo-500
+              'brand-dark': '#0F172A', // slate-900
+              'brand-light': '#F1F5F9', // slate-100
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+  <body class="bg-brand-dark text-brand-light font-sans leading-relaxed">
+    <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-5"></div>
+    <div class="relative z-10">
+      <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 bg-brand-dark/90 backdrop-blur-sm shadow-lg shadow-brand-secondary/10">
+        <div class="container mx-auto px-4">
+          <div class="flex items-center justify-between h-20">
+            <a href="index.html" class="flex items-center space-x-2">
+              <svg class="w-10 h-10 text-brand-primary" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.28-.14-1.32-.6-1.32-1.39v-2.1l1.44-1.8c.24-.3.24-.71 0-1.01l-1.44-1.8v-1.5c0-.99-1.42-1.5-2.07-1.04l-1.62 1.18-1.12-1.3c-.33-.4-1.02-.4-1.35 0L8.3 8.65l-1.46-1.19c-.64-.46-1.95.05-1.95 1.04v1.5L3.45 12c-.24.3-.24.71 0 1.01l1.44 1.8v2.1c0 .79-1.04 1.25-1.32 1.39-.42.21-.68.63-.68 1.1v.01c0 .83.67 1.5 1.5 1.5h12c.83 0 1.5-.67 1.5-1.5v-.01c0-.47-.26-.89-.68-1.1z"/></svg>
+              <span class="text-xl font-bold tracking-wider text-white">ONCO</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-6">
+              <a href="index.html" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors duration-300">Accueil</a>
+              <a href="#" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors duration-300">Recherche</a>
+              <a href="membre.html" class="text-sm font-medium text-brand-primary transition-colors duration-300">Membres</a>
+              <a href="#" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors duration-300">Événements</a>
+              <a href="#" class="px-4 py-2 text-sm font-semibold text-white bg-brand-primary hover:bg-amber-400 rounded-md shadow-md transition-all duration-300 transform hover:scale-105">Prendre RDV</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-slate-300 hover:text-brand-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+            </button>
+          </div>
+          <!-- Mobile Menu -->
+          <div id="mobile-menu" class="hidden md:hidden py-4">
+            <a href="index.html" class="block py-2 text-slate-300 hover:text-brand-primary">Accueil</a>
+            <a href="#" class="block py-2 text-slate-300 hover:text-brand-primary">Recherche</a>
+            <a href="membre.html" class="block py-2 text-brand-primary">Membres</a>
+            <a href="#" class="block py-2 text-slate-300 hover:text-brand-primary">Événements</a>
+            <a href="#" class="mt-4 block w-full text-center px-4 py-2 text-sm font-semibold text-white bg-brand-primary hover:bg-amber-400 rounded-md shadow-md">Prendre RDV</a>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- Page Header Section -->
+        <section class="relative h-[40vh] flex items-center justify-center text-center overflow-hidden bg-slate-900">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-dark via-slate-800 to-brand-secondary/30 opacity-80"></div>
+            <div class="relative container mx-auto px-4 z-10">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4 fade-in-up">
+                    Notre Équipe
+                </h1>
+                <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto fade-in-up stagger-1">
+                    Découvrez les experts passionnés qui animent l'Institut Onco Occitanie.
+                </p>
+            </div>
+        </section>
+
+        <!-- Members Grid Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    
+                    <!-- Member Card 1 -->
+                    <div class="bg-slate-800/50 rounded-lg p-6 text-center group fade-in-up stagger-1 transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-brand-primary/20">
+                        <img src="https://picsum.photos/seed/member1/200" alt="Photo de Dr. Élise Renaud" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-700 group-hover:border-brand-primary transition-colors duration-300">
+                        <h3 class="text-xl font-bold text-white mb-1">Dr. Élise Renaud</h3>
+                        <p class="text-brand-primary font-semibold mb-3">Oncologue Médicale</p>
+                        <p class="text-slate-400 text-sm">Spécialiste des thérapies ciblées et de l'immunothérapie. Passionnée par l'innovation au service du patient.</p>
+                    </div>
+
+                    <!-- Member Card 2 -->
+                    <div class="bg-slate-800/50 rounded-lg p-6 text-center group fade-in-up stagger-2 transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-brand-primary/20">
+                        <img src="https://picsum.photos/seed/member2/200" alt="Photo de Prof. Luc Moreau" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-700 group-hover:border-brand-primary transition-colors duration-300">
+                        <h3 class="text-xl font-bold text-white mb-1">Prof. Luc Moreau</h3>
+                        <p class="text-brand-primary font-semibold mb-3">Chirurgien Oncologue</p>
+                        <p class="text-slate-400 text-sm">Expert en chirurgie robotique et mini-invasive. Reconnu pour sa précision et son approche humaine.</p>
+                    </div>
+
+                    <!-- Member Card 3 -->
+                    <div class="bg-slate-800/50 rounded-lg p-6 text-center group fade-in-up stagger-3 transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-brand-primary/20">
+                        <img src="https://picsum.photos/seed/member3/200" alt="Photo de Dr. Chloé Lambert" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-700 group-hover:border-brand-primary transition-colors duration-300">
+                        <h3 class="text-xl font-bold text-white mb-1">Dr. Chloé Lambert</h3>
+                        <p class="text-brand-primary font-semibold mb-3">Radiothérapeute</p>
+                        <p class="text-slate-400 text-sm">Pionnière dans l'utilisation de la radiothérapie adaptative guidée par l'IA pour des traitements plus précis.</p>
+                    </div>
+
+                    <!-- Member Card 4 -->
+                    <div class="bg-slate-800/50 rounded-lg p-6 text-center group fade-in-up stagger-4 transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-brand-primary/20">
+                        <img src="https://picsum.photos/seed/member4/200" alt="Photo de Dr. Karim Belkacem" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-700 group-hover:border-brand-primary transition-colors duration-300">
+                        <h3 class="text-xl font-bold text-white mb-1">Dr. Karim Belkacem</h3>
+                        <p class="text-brand-primary font-semibold mb-3">Chercheur Principal</p>
+                        <p class="text-slate-400 text-sm">Dirige le laboratoire de biologie moléculaire, axé sur la découverte de nouveaux biomarqueurs.</p>
+                    </div>
+
+                    <!-- Member Card 5 -->
+                    <div class="bg-slate-800/50 rounded-lg p-6 text-center group fade-in-up stagger-1 transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-brand-primary/20">
+                        <img src="https://picsum.photos/seed/member5/200" alt="Photo de Sophie Martin" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-700 group-hover:border-brand-primary transition-colors duration-300">
+                        <h3 class="text-xl font-bold text-white mb-1">Sophie Martin</h3>
+                        <p class="text-brand-primary font-semibold mb-3">Infirmière Coordinatrice</p>
+                        <p class="text-slate-400 text-sm">Assure un parcours de soins fluide et personnalisé pour chaque patient, avec une écoute et un soutien constants.</p>
+                    </div>
+                    
+                    <!-- Member Card 6 -->
+                    <div class="bg-slate-800/50 rounded-lg p-6 text-center group fade-in-up stagger-2 transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-brand-primary/20">
+                        <img src="https://picsum.photos/seed/member6/200" alt="Photo de David Lefebvre" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-700 group-hover:border-brand-primary transition-colors duration-300">
+                        <h3 class="text-xl font-bold text-white mb-1">David Lefebvre</h3>
+                        <p class="text-brand-primary font-semibold mb-3">Psychologue Clinicien</p>
+                        <p class="text-slate-400 text-sm">Offre un soutien psychologique aux patients et à leurs familles pour traverser l'épreuve de la maladie.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+      </main>
+
+      <footer class="bg-slate-900/70 border-t border-slate-700/50 mt-20 pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-1 mb-6 md:mb-0">
+                     <a href="index.html" class="flex items-center space-x-2">
+                        <svg class="w-8 h-8 text-brand-primary" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.28-.14-1.32-.6-1.32-1.39v-2.1l1.44-1.8c.24-.3.24-.71 0-1.01l-1.44-1.8v-1.5c0-.99-1.42-1.5-2.07-1.04l-1.62 1.18-1.12-1.3c-.33-.4-1.02-.4-1.35 0L8.3 8.65l-1.46-1.19c-.64-.46-1.95.05-1.95 1.04v1.5L3.45 12c-.24.3-.24.71 0 1.01l1.44 1.8v2.1c0 .79-1.04 1.25-1.32 1.39-.42.21-.68.63-.68 1.1v.01c0 .83.67 1.5 1.5 1.5h12c.83 0 1.5-.67 1.5-1.5v-.01c0-.47-.26-.89-.68-1.1z"/></svg>
+                        <span class="text-lg font-bold tracking-wider text-white">ONCO</span>
+                    </a>
+                    <p class="text-slate-400 mt-4 text-sm">Votre partenaire santé en Occitanie.</p>
+                </div>
+                <div class="md:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="font-semibold text-white mb-4">Accès Rapides</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-slate-400 hover:text-brand-primary text-sm">Prendre un RDV</a></li>
+                            <li><a href="#" class="text-slate-400 hover:text-brand-primary text-sm">Trouver un médecin</a></li>
+                            <li><a href="#" class="text-slate-400 hover:text-brand-primary text-sm">Infos pratiques</a></li>
+                            <li><a href="#" class="text-slate-400 hover:text-brand-primary text-sm">Actualités</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-white mb-4">Espaces</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-slate-400 hover:text-brand-primary text-sm">Espace Patients</a></li>
+                            <li><a href="#" class="text-slate-400 hover:text-brand-primary text-sm">Espace Professionnels</a></li>
+                            <li><a href="#" class="text-slate-400 hover:text-brand-primary text-sm">Espace Presse</a></li>
+                            <li><a href="#" class="text-slate-400 hover:text-brand-primary text-sm">Carrières</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-white mb-4">À Propos</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-slate-400 hover:text-brand-primary text-sm">Notre histoire</a></li>
+                            <li><a href="#" class="text-slate-400 hover:text-brand-primary text-sm">Nos valeurs</a></li>
+                            <li><a href="#" class="text-slate-400 hover:text-brand-primary text-sm">Gouvernance</a></li>
+                            <li><a href="#" class="text-slate-400 hover:text-brand-primary text-sm">Contactez-nous</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-slate-700/50 pt-8 text-center text-slate-500 text-sm">
+                <p>&copy; 2024 Institut Onco Occitanie. Tous droits réservés.</p>
+            </div>
+        </div>
+      </footer>
+    </div>
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>
