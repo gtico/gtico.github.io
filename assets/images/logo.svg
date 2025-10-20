@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <defs>
+        <!-- Gradient for the main shield body -->
+        <linearGradient id="shieldFill" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stop-color="#FBBF24"/> <!-- Amber 400 -->
+            <stop offset="100%" stop-color="#D97706"/> <!-- Amber 600 -->
+        </linearGradient>
+        <!-- Gradient for the inner symbol -->
+        <linearGradient id="symbolFill" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stop-color="#F1F5F9"/> <!-- Slate 100 -->
+            <stop offset="100%" stop-color="#CBD5E1"/> <!-- Slate 300 -->
+        </linearGradient>
+    </defs>
+
+    <!-- Optional: Subtle drop shadow for depth -->
+    <path d="M12 2L3 6.5V12c0 5.52 4.03 10 9 10s9-4.48 9-10V6.5L12 2z" fill="rgba(0,0,0,0.2)" transform="translate(0.4, 0.8)"/>
+
+    <!-- Main Shield Path -->
+    <path d="M12 2L3 6.5V12c0 5.52 4.03 10 9 10s9-4.48 9-10V6.5L12 2z" fill="url(#shieldFill)" stroke="#F97316" stroke-width="0.5"/>
+    
+    <!-- Inner Symbol: stylized person/node in a network -->
+    <!-- Head -->
+    <circle cx="12" cy="9.5" r="2.5" fill="url(#symbolFill)"/>
+    <!-- Body/Shield -->
+    <path d="M8 13 C 8 11, 12 11, 12 11 S 16 11, 16 13 C 16 16, 12 18, 12 18 S 8 16, 8 13 Z" fill="url(#symbolFill)"/>
+
+    <!-- Glossy Highlight at the top -->
+    <path d="M12 2L3 6.5 C 5 6, 9 5, 12 5 S 19 6, 21 6.5 L12 2z" fill="white" fill-opacity="0.3"/>
+</svg>
