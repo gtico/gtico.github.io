@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recherche - GT-ICO</title>
+    <title>Événements - GT-ICO</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -43,9 +43,9 @@
             </a>
             <nav class="hidden md:flex items-center space-x-6">
               <a href="index.html" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors duration-300">Accueil</a>
-              <a href="recherche.html" class="text-sm font-medium text-brand-primary transition-colors duration-300">Recherche</a>
+              <a href="recherche.html" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors duration-300">Recherche</a>
               <a href="membre.html" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors duration-300">Membres</a>
-              <a href="evenement.html" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors duration-300">Événements</a>
+              <a href="evenement.html" class="text-sm font-medium text-brand-primary transition-colors duration-300">Événements</a>
               <a href="#" class="px-4 py-2 text-sm font-semibold text-white bg-brand-primary hover:bg-amber-400 rounded-md shadow-md transition-all duration-300 transform hover:scale-105">Prendre RDV</a>
             </nav>
             <button id="mobile-menu-button" class="md:hidden text-slate-300 hover:text-brand-primary">
@@ -55,9 +55,9 @@
           <!-- Mobile Menu -->
           <div id="mobile-menu" class="hidden md:hidden py-4">
             <a href="index.html" class="block py-2 text-slate-300 hover:text-brand-primary">Accueil</a>
-            <a href="recherche.html" class="block py-2 text-brand-primary">Recherche</a>
+            <a href="recherche.html" class="block py-2 text-slate-300 hover:text-brand-primary">Recherche</a>
             <a href="membre.html" class="block py-2 text-slate-300 hover:text-brand-primary">Membres</a>
-            <a href="evenement.html" class="block py-2 text-slate-300 hover:text-brand-primary">Événements</a>
+            <a href="evenement.html" class="block py-2 text-brand-primary">Événements</a>
             <a href="#" class="mt-4 block w-full text-center px-4 py-2 text-sm font-semibold text-white bg-brand-primary hover:bg-amber-400 rounded-md shadow-md">Prendre RDV</a>
           </div>
         </div>
@@ -69,97 +69,99 @@
             <div class="absolute inset-0 bg-gradient-to-br from-brand-dark via-slate-800 to-brand-secondary/30 opacity-80"></div>
             <div class="relative container mx-auto px-4 z-10">
                 <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4 fade-in-up">
-                    Recherche & Innovation
+                    Nos Événements
                 </h1>
                 <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto fade-in-up stagger-1">
-                    Au cœur de notre mission : repousser les limites de la connaissance pour transformer les soins en cancérologie.
+                    Rencontres, partages et découvertes : vivez au rythme de l'Institut Onco Occitanie.
                 </p>
             </div>
         </section>
 
-        <!-- Research Areas Section -->
-        <section class="py-20 bg-brand-dark">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-12 fade-in-up">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">Nos Axes de Recherche</h2>
-                    <p class="text-slate-400 mt-2">Une approche pluridisciplinaire pour combattre le cancer sur tous les fronts.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Area 1 -->
-                    <div class="bg-slate-800/50 p-6 rounded-lg text-center fade-in-up stagger-1">
-                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-brand-secondary/20 mx-auto mb-4">
-                            <svg class="h-8 w-8 text-brand-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6V4m0 16v-2M8 12a4 4 0 118 0 4 4 0 01-8 0z" /></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Immunothérapie</h3>
-                        <p class="text-slate-400 text-sm">Stimuler le système immunitaire pour reconnaître et détruire les cellules cancéreuses.</p>
-                    </div>
-                    <!-- Area 2 -->
-                    <div class="bg-slate-800/50 p-6 rounded-lg text-center fade-in-up stagger-2">
-                         <div class="flex items-center justify-center h-16 w-16 rounded-full bg-brand-secondary/20 mx-auto mb-4">
-                           <svg class="h-8 w-8 text-brand-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" /></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Thérapies Ciblées</h3>
-                        <p class="text-slate-400 text-sm">Développer des médicaments qui visent spécifiquement les anomalies moléculaires des tumeurs.</p>
-                    </div>
-                    <!-- Area 3 -->
-                    <div class="bg-slate-800/50 p-6 rounded-lg text-center fade-in-up stagger-3">
-                         <div class="flex items-center justify-center h-16 w-16 rounded-full bg-brand-secondary/20 mx-auto mb-4">
-                           <svg class="h-8 w-8 text-brand-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Génomique du Cancer</h3>
-                        <p class="text-slate-400 text-sm">Analyser l'ADN des tumeurs pour personnaliser les traitements et prédire les réponses.</p>
-                    </div>
-                    <!-- Area 4 -->
-                    <div class="bg-slate-800/50 p-6 rounded-lg text-center fade-in-up stagger-4">
-                         <div class="flex items-center justify-center h-16 w-16 rounded-full bg-brand-secondary/20 mx-auto mb-4">
-                           <svg class="h-8 w-8 text-brand-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M12 8h.01M15 8h.01M15 14h.01M18 11h.01M18 14h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">IA & Diagnostic</h3>
-                        <p class="text-slate-400 text-sm">Utiliser l'intelligence artificielle pour améliorer la précocité et la précision des diagnostics.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Flagship Projects Section -->
+        <!-- Upcoming Events Section -->
         <section class="py-20">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12 fade-in-up">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">Nos Projets Phares</h2>
-                    <p class="text-slate-400 mt-2">Quelques exemples de nos travaux les plus prometteurs.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Prochains Événements</h2>
+                    <p class="text-slate-400 mt-2">Ne manquez pas nos prochains rendez-vous.</p>
                 </div>
-
-                <!-- Project 1 -->
-                <div class="grid md:grid-cols-2 gap-8 items-center mb-16 fade-in-up">
-                    <img src="https://picsum.photos/seed/project1/800/600" alt="Image du projet PREDICT" class="rounded-lg shadow-xl">
-                    <div>
-                        <h3 class="text-2xl font-bold text-brand-primary mb-3">Projet PREDICT-IO</h3>
-                        <p class="text-slate-300 mb-4">Ce projet vise à identifier des biomarqueurs sanguins capables de prédire la réponse des patients à l'immunothérapie, permettant une médecine de plus en plus personnalisée et évitant les traitements inutiles.</p>
-                        <a href="#" class="font-semibold text-brand-primary hover:text-amber-400">En savoir plus &rarr;</a>
+                <div class="max-w-4xl mx-auto space-y-8">
+                    <!-- Event 1 -->
+                    <div class="bg-slate-800/50 rounded-lg p-6 md:flex items-center gap-8 fade-in-up stagger-1 transform hover:shadow-brand-primary/20 hover:scale-[1.02] transition-all duration-300">
+                        <div class="text-center flex-shrink-0 w-24 mx-auto md:mx-0 mb-4 md:mb-0">
+                            <p class="text-5xl font-bold text-brand-primary">25</p>
+                            <p class="text-lg text-slate-400">OCT</p>
+                        </div>
+                        <div class="flex-grow">
+                            <p class="text-sm text-brand-secondary font-semibold mb-1">Conférence</p>
+                            <h3 class="text-xl font-bold text-white mb-2">Les nouvelles immunothérapies : espoirs et réalités</h3>
+                            <p class="text-slate-400 text-sm mb-4">Une conférence grand public pour décrypter les avancées majeures dans le traitement du cancer. En présence du Dr. Élise Renaud.</p>
+                             <div class="flex items-center text-sm text-slate-500 gap-4">
+                                <span><i class="fas fa-clock mr-1"></i>18h30 - Amphithéâtre</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 md:mt-0 flex-shrink-0">
+                             <a href="#" class="px-5 py-2 text-sm font-semibold text-white bg-brand-primary hover:bg-amber-400 rounded-md shadow-md transition-all duration-300">S'inscrire</a>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="grid md:grid-cols-2 gap-8 items-center fade-in-up">
-                     <div class="md:order-2">
-                        <img src="https://picsum.photos/seed/project2/800/600" alt="Image du projet Onco-Bot" class="rounded-lg shadow-xl">
-                    </div>
-                    <div class="md:order-1">
-                        <h3 class="text-2xl font-bold text-brand-primary mb-3">Projet Onco-Bot</h3>
-                        <p class="text-slate-300 mb-4">En collaboration avec des ingénieurs, nous développons une nouvelle génération de robots chirurgicaux. L'objectif est d'augmenter la précision du geste chirurgical et de réduire le temps de récupération post-opératoire.</p>
-                        <a href="#" class="font-semibold text-brand-primary hover:text-amber-400">En savoir plus &rarr;</a>
+                     <!-- Event 2 -->
+                    <div class="bg-slate-800/50 rounded-lg p-6 md:flex items-center gap-8 fade-in-up stagger-2 transform hover:shadow-brand-primary/20 hover:scale-[1.02] transition-all duration-300">
+                        <div class="text-center flex-shrink-0 w-24 mx-auto md:mx-0 mb-4 md:mb-0">
+                            <p class="text-5xl font-bold text-brand-primary">12</p>
+                            <p class="text-lg text-slate-400">NOV</p>
+                        </div>
+                        <div class="flex-grow">
+                            <p class="text-sm text-brand-secondary font-semibold mb-1">Portes Ouvertes</p>
+                            <h3 class="text-xl font-bold text-white mb-2">Journée portes ouvertes du laboratoire de recherche</h3>
+                             <p class="text-slate-400 text-sm mb-4">Visitez nos laboratoires, rencontrez nos chercheurs et découvrez les coulisses de l'innovation contre le cancer.</p>
+                             <div class="flex items-center text-sm text-slate-500 gap-4">
+                                <span><i class="fas fa-clock mr-1"></i>10h00 à 17h00 - Bâtiment Recherche</span>
+                            </div>
+                        </div>
+                         <div class="mt-4 md:mt-0 flex-shrink-0">
+                             <a href="#" class="px-5 py-2 text-sm font-semibold text-white bg-brand-primary hover:bg-amber-400 rounded-md shadow-md transition-all duration-300">Programme</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <!-- Clinical Trials CTA -->
-        <section class="py-20 bg-brand-secondary/10">
-            <div class="container mx-auto px-4 text-center fade-in-up">
-                <h2 class="text-3xl font-bold text-white mb-4">Participez à la recherche de demain.</h2>
-                <p class="text-slate-300 max-w-2xl mx-auto mb-8">Les essais cliniques sont essentiels pour faire progresser les traitements. Découvrez si vous êtes éligible pour participer à l'un de nos essais en cours.</p>
-                <a href="#" class="px-8 py-3 font-semibold text-brand-dark bg-brand-primary hover:bg-amber-400 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">Consulter nos essais cliniques</a>
+
+        <!-- Past Events Section -->
+        <section class="py-20 bg-slate-900/50">
+          <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in-up">
+              <h2 class="text-3xl md:text-4xl font-bold text-white">Événements Passés</h2>
+              <p class="text-slate-400 mt-2">Retour sur nos moments forts.</p>
             </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <!-- Past Event 1 -->
+              <div class="bg-slate-800/50 rounded-lg overflow-hidden group fade-in-up stagger-1">
+                <img src="https://picsum.photos/seed/event1/600/400" alt="Image de l'événement" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="p-6">
+                  <p class="text-sm text-brand-primary font-semibold mb-2">Juin 2024</p>
+                  <h3 class="text-lg font-bold text-white mb-4">Course caritative "Courir pour la Vie"</h3>
+                  <a href="#" class="font-semibold text-brand-primary hover:text-amber-400">Voir le résumé &rarr;</a>
+                </div>
+              </div>
+              <!-- Past Event 2 -->
+              <div class="bg-slate-800/50 rounded-lg overflow-hidden group fade-in-up stagger-2">
+                <img src="https://picsum.photos/seed/event2/600/400" alt="Image de l'événement" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="p-6">
+                  <p class="text-sm text-brand-primary font-semibold mb-2">Avril 2024</p>
+                  <h3 class="text-lg font-bold text-white mb-4">Symposium sur la chirurgie robotique en oncologie</h3>
+                  <a href="#" class="font-semibold text-brand-primary hover:text-amber-400">Voir le résumé &rarr;</a>
+                </div>
+              </div>
+              <!-- Past Event 3 -->
+              <div class="bg-slate-800/50 rounded-lg overflow-hidden group fade-in-up stagger-3">
+                <img src="https://picsum.photos/seed/event3/600/400" alt="Image de l'événement" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="p-6">
+                  <p class="text-sm text-brand-primary font-semibold mb-2">Décembre 2023</p>
+                  <h3 class="text-lg font-bold text-white mb-4">Gala de charité annuel de l'institut</h3>
+                  <a href="#" class="font-semibold text-brand-primary hover:text-amber-400">Voir le résumé &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
       </main>
