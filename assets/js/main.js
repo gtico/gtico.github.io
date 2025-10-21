@@ -43,52 +43,65 @@ document.querySelectorAll('.fade-in-up').forEach(el => {
 
 async function loadPublications() {
     const container = document.getElementById('publications-list');
-    // Only run this function if the container exists on the page
-    if (!container) {
+    if (!container) return;
+
+    const targetUrl = 'https://scout.univ-toulouse.fr/pub/docs/group-GT-ICO/web/publications/publications.json';
+
+    // Deux proxys : principal et secours
+    const proxies = [
+        url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+        url => `https://corsproxy.io/?${encodeURIComponent(url)}`
+    ];
+
+    let publications = null;
+    let lastError = null;
+
+    // Essaye les proxys l’un après l’autre
+    for (const proxyBuilder of proxies) {
+        const proxyUrl = proxyBuilder(targetUrl);
+        console.log(`🔄 Tentative de chargement via : ${proxyUrl}`);
+        try {
+            const response = await fetch(proxyUrl);
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            publications = await response.json();
+            if (Array.isArray(publications)) break; // succès !
+        } catch (error) {
+            console.warn(`⚠️ Erreur avec proxy ${proxyUrl}:`, error);
+            lastError = error;
+        }
+    }
+
+    if (!publications) {
+        console.error("❌ Impossible de charger les publications via les proxys :", lastError);
+        container.innerHTML = '<p class="text-red-400">Impossible de charger les publications pour le moment.</p>';
         return;
     }
 
-    // URL cible
-    const targetUrl = 'https://scout.univ-toulouse.fr/pub/docs/group-GT-ICO/web/publications/publications.json';
-    // Proxy AllOrigins : on encode l’URL cible
-    const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(targetUrl);
-
-    try {
-        const response = await fetch(proxyUrl);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const publications = await response.json();
-
-        if (!publications || publications.length === 0) {
-            container.innerHTML = '<p>Aucune publication à afficher pour le moment.</p>';
-            return;
-        }
-
-        // Clear existing content and build the list
-        container.innerHTML = ''; 
-        publications.forEach(pub => {
-            const publicationElement = document.createElement('div');
-            publicationElement.className = 'bg-slate-800/50 p-6 rounded-lg';
-            publicationElement.innerHTML = `
-                <p>
-                    <strong class="text-white">${pub.authors}</strong>. 
-                    "${pub.title}", <em>${pub.journal}</em>. ${pub.year}.
-                </p>
-                <a href="${pub.url}" target="_blank" rel="noopener noreferrer"
-                   class="font-semibold text-brand-primary hover:text-amber-400 text-sm mt-2 inline-block">
-                   Lire la publication &rarr;
-                </a>
-            `;
-            container.appendChild(publicationElement);
-        });
-
-    } catch (error) {
-        console.error("Impossible de charger les publications:", error);
-        container.innerHTML = '<p class="text-red-400">Une erreur est survenue lors du chargement des publications.</p>';
+    // Si aucun contenu
+    if (publications.length === 0) {
+        container.innerHTML = '<p>Aucune publication à afficher pour le moment.</p>';
+        return;
     }
+
+    // ✅ Affichage
+    container.innerHTML = '';
+    publications.forEach(pub => {
+        const publicationElement = document.createElement('div');
+        publicationElement.className = 'bg-slate-800/50 p-6 rounded-lg';
+        publicationElement.innerHTML = `
+            <p>
+                <strong class="text-white">${pub.authors}</strong>. 
+                "${pub.title}", <em>${pub.journal}</em>. ${pub.year}.
+            </p>
+            <a href="${pub.url}" target="_blank" rel="noopener noreferrer"
+               class="font-semibold text-brand-primary hover:text-amber-400 text-sm mt-2 inline-block">
+               Lire la publication &rarr;
+            </a>
+        `;
+        container.appendChild(publicationElement);
+    });
 }
+
 
 
 // Function to load theses from a JSON file
