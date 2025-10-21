@@ -47,7 +47,6 @@ async function loadPublications() {
 
     // Deux proxys : principal et secours
     const proxies = [
-        url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
         url => `https://corsproxy.io/?${encodeURIComponent(url)}`
     ];
 
@@ -111,7 +110,6 @@ async function loadTheses() {
 
     // Liste des proxys à tester (AllOrigins + corsproxy.io)
     const proxies = [
-        url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
         url => `https://corsproxy.io/?${encodeURIComponent(url)}`
     ];
 
@@ -166,7 +164,6 @@ async function loadProjets() {
 
     const targetUrl = 'https://scout.univ-toulouse.fr/pub/docs/group-GT-ICO/web/projets/projets.json';
     const proxies = [
-        url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
         url => `https://corsproxy.io/?${encodeURIComponent(url)}`
     ];
     let projets = null;
@@ -230,7 +227,6 @@ async function loadPostdocs() {
 
     const targetUrl = 'https://scout.univ-toulouse.fr/pub/docs/group-GT-ICO/web/postdocs/postdocs.json';
     const proxies = [
-        url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
         url => `https://corsproxy.io/?${encodeURIComponent(url)}`
     ];
     let postdocs = null;
