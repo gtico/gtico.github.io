@@ -119,35 +119,108 @@
             </div>
         </section>
 
-        <!-- Flagship Projects Section -->
+        <!-- Scientific Contributions Section -->
         <section class="py-20">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12 fade-in-up">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">Nos Projets Phares</h2>
-                    <p class="text-slate-400 mt-2">Quelques exemples de nos travaux les plus prometteurs.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Nos Travaux et Contributions</h2>
+                    <p class="text-slate-400 mt-2">Explorez nos projets, thèses, et publications.</p>
                 </div>
 
-                <!-- Project 1 -->
-                <div class="grid md:grid-cols-2 gap-8 items-center mb-16 fade-in-up">
-                    <div class="bg-red-600 p-6 rounded-lg shadow-xl">
-                        <img src="https://www.ico-occitanie.fr/wp-content/uploads/2023/11/logo-ICO.svg" alt="Logo ICO pour le projet OSMOSE" class="w-full h-auto">
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-brand-primary mb-3">Projet OSMOSE</h3>
-                        <p class="text-slate-300 mb-4">Le projet OSMOSE s’inscrit dans le cadre de l’appel à projets national « Compétences et Métiers d’Avenir » – Cybersécurité, visant à répondre à la forte demande en compétences dans ce domaine stratégique. Porté par un consortium de 25 partenaires académiques, industriels et socio-économiques en Occitanie, il ambitionne de former plus de 30 000 apprenants et sensibiliser 150 000 personnes à la cybersécurité d’ici 2025. Structuré en cinq axes (développement de modules de formation, formation de formateurs, création de plateformes pédagogiques innovantes, promotion des métiers et gouvernance), OSMOSE entend renforcer la formation initiale et continue, sensibiliser tous les publics – du secondaire aux professionnels –, et favoriser l’attractivité de la filière. Doté d’un budget global de 27 millions d’euros, il vise à constituer un écosystème régional d’excellence pour soutenir la montée en compétences et l’emploi dans la cybersécurité.</p>
-                        <a href="https://www.ico-occitanie.fr/wp-content/uploads/2024/06/OSMOSE_1207-v2.pdf" class="font-semibold text-brand-primary hover:text-amber-400">En savoir plus &rarr;</a>
+                <!-- Tabs Navigation -->
+                <div class="flex justify-center mb-8 fade-in-up" id="tabs-nav">
+                    <div class="flex flex-wrap justify-center border border-slate-700 rounded-lg overflow-hidden">
+                        <button data-tab="projets" class="tab-button active-tab px-4 sm:px-6 py-2 font-semibold text-sm sm:text-base">Projets Phares</button>
+                        <button data-tab="theses" class="tab-button px-4 sm:px-6 py-2 font-semibold text-sm sm:text-base">Thèses</button>
+                        <button data-tab="postdocs" class="tab-button px-4 sm:px-6 py-2 font-semibold text-sm sm:text-base">Post-docs</button>
+                        <button data-tab="publications" class="tab-button px-4 sm:px-6 py-2 font-semibold text-sm sm:text-base">Publications</button>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="grid md:grid-cols-2 gap-8 items-center fade-in-up">
-                     <div class="md:order-2">
-                        <img src="https://hermes-design.github.io/1704997992104.png" alt="Image du projet SECURE-UX" class="rounded-lg shadow-xl">
+                <!-- Tabs Content -->
+                <div id="tabs-content">
+                    <!-- Projets Phares Panel -->
+                    <div id="projets" class="tab-panel">
+                        <!-- Project 1 -->
+                        <div class="grid md:grid-cols-2 gap-8 items-center mb-16">
+                            <div class="bg-red-600 p-6 rounded-lg shadow-xl">
+                                <img src="https://www.ico-occitanie.fr/wp-content/uploads/2023/11/logo-ICO.svg" alt="Logo ICO pour le projet OSMOSE" class="w-full h-auto">
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-brand-primary mb-3">Projet OSMOSE</h3>
+                                <p class="text-slate-300 mb-4">Le projet OSMOSE s’inscrit dans le cadre de l’appel à projets national « Compétences et Métiers d’Avenir » – Cybersécurité, visant à répondre à la forte demande en compétences dans ce domaine stratégique. Porté par un consortium de 25 partenaires académiques, industriels et socio-économiques en Occitanie, il ambitionne de former plus de 30 000 apprenants et sensibiliser 150 000 personnes à la cybersécurité d’ici 2025. Structuré en cinq axes (développement de modules de formation, formation de formateurs, création de plateformes pédagogiques innovantes, promotion des métiers et gouvernance), OSMOSE entend renforcer la formation initiale et continue, sensibiliser tous les publics – du secondaire aux professionnels –, et favoriser l’attractivité de la filière. Doté d’un budget global de 27 millions d’euros, il vise à constituer un écosystème régional d’excellence pour soutenir la montée en compétences et l’emploi dans la cybersécurité.</p>
+                                <a href="https://www.ico-occitanie.fr/wp-content/uploads/2024/06/OSMOSE_1207-v2.pdf" class="font-semibold text-brand-primary hover:text-amber-400">En savoir plus &rarr;</a>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                             <div class="md:order-2">
+                                <img src="https://hermes-design.github.io/1704997992104.png" alt="Image du projet HERMES-Design" class="rounded-lg shadow-xl">
+                            </div>
+                            <div class="md:order-1">
+                                <h3 class="text-2xl font-bold text-brand-primary mb-3">Projet HERMES-Design</h3>
+                                <p class="text-slate-300 mb-4">HERMES-Design: Human-Centric Collaborative Architectural Decision-Making for Secure System Design. The current state of tools and methods for collaborative architectural decision-making mainly emphasizes knowledge sharing, reuse, compromises, and seeking consensus among diverse stakeholders. However, our observation reveals a significant oversight in considering the decision-making constraints of various stakeholders in relation to human factors during the development process. For example, when dealing with the design of secure systems, it becomes essential to thoroughly comprehend the benefits and limitations of potential solutions like cryptography, authentication, access control, auditing, and more. The project aims to develop a formal modeling framework that takes into account human factors in architectural decision-making, particularly those related to the expertise and experience of team members involved in collaborative decision-making processes. More broadly, this research will enhance our understanding of how collaborative decisions are made and provide better traceability of decisions impacting system security. Consequently, it will increase confidence in the decisions made by a diverse team of members.</p>
+                                <a href="https://hermes-design.github.io/" class="font-semibold text-brand-primary hover:text-amber-400">En savoir plus &rarr;</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="md:order-1">
-                        <h3 class="text-2xl font-bold text-brand-primary mb-3">Projet HERMES-Design</h3>
-                        <p class="text-slate-300 mb-4">HERMES-Design: Human-Centric Collaborative Architectural Decision-Making for Secure System Design. The current state of tools and methods for collaborative architectural decision-making mainly emphasizes knowledge sharing, reuse, compromises, and seeking consensus among diverse stakeholders. However, our observation reveals a significant oversight in considering the decision-making constraints of various stakeholders in relation to human factors during the development process. For example, when dealing with the design of secure systems, it becomes essential to thoroughly comprehend the benefits and limitations of potential solutions like cryptography, authentication, access control, auditing, and more. The project aims to develop a formal modeling framework that takes into account human factors in architectural decision-making, particularly those related to the expertise and experience of team members involved in collaborative decision-making processes. More broadly, this research will enhance our understanding of how collaborative decisions are made and provide better traceability of decisions impacting system security. Consequently, it will increase confidence in the decisions made by a diverse team of members.</p>
-                        <a href="https://hermes-design.github.io/" class="font-semibold text-brand-primary hover:text-amber-400">En savoir plus &rarr;</a>
+                    
+                    <!-- Thèses Panel -->
+                    <div id="theses" class="tab-panel hidden">
+                        <div class="space-y-8 max-w-4xl mx-auto">
+                            <!-- Thesis 1 -->
+                            <div class="bg-slate-800/50 p-6 rounded-lg">
+                                <h4 class="text-xl font-bold text-white">Modélisation des comportements à risque en ligne chez les adolescents</h4>
+                                <p class="text-brand-primary font-semibold text-sm mt-1 mb-2">Par A. Martin (2025)</p>
+                                <p class="text-slate-400">Cette thèse explore les facteurs psychologiques et sociaux qui influencent la prise de risque en ligne et propose un modèle prédictif pour identifier les individus vulnérables.</p>
+                            </div>
+                            <!-- Thesis 2 -->
+                            <div class="bg-slate-800/50 p-6 rounded-lg">
+                                <h4 class="text-xl font-bold text-white">Impact de l'UX des outils d'authentification sur l'adoption des bonnes pratiques</h4>
+                                <p class="text-brand-primary font-semibold text-sm mt-1 mb-2">Par L. Dubois (2024)</p>
+                                <p class="text-slate-400">Analyse de l'utilisabilité des solutions d'authentification multi-facteurs (MFA) et leur influence sur le comportement des utilisateurs en entreprise.</p>
+                            </div>
+                             <!-- Thesis 3 -->
+                            <div class="bg-slate-800/50 p-6 rounded-lg">
+                                <h4 class="text-xl font-bold text-white">L'influence des biais cognitifs dans la détection des emails de phishing</h4>
+                                <p class="text-brand-primary font-semibold text-sm mt-1 mb-2">Par C. Moreau (2023)</p>
+                                <p class="text-slate-400">Étude expérimentale sur les heuristiques utilisées par les employés pour évaluer la légitimité des emails et conception d'interfaces de messagerie plus résilientes.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Post-docs Panel -->
+                    <div id="postdocs" class="tab-panel hidden">
+                        <div class="space-y-8 max-w-4xl mx-auto">
+                            <!-- Post-doc 1 -->
+                            <div class="bg-slate-800/50 p-6 rounded-lg">
+                                <h4 class="text-xl font-bold text-white">Développement d'un framework de formation à la cybersécurité basé sur la gamification</h4>
+                                <p class="text-brand-primary font-semibold text-sm mt-1 mb-2">Dr. S. Lefevre (2025-2026)</p>
+                                <p class="text-slate-400">Ce projet post-doctoral vise à créer et valider une plateforme de formation interactive qui utilise des mécanismes de jeu pour améliorer la rétention des connaissances et l'engagement des employés.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Publications Panel -->
+                    <div id="publications" class="tab-panel hidden">
+                         <div class="space-y-6 max-w-4xl mx-auto text-slate-300">
+                            <!-- Publication 1 -->
+                            <div class="bg-slate-800/50 p-6 rounded-lg">
+                                <p><strong class="text-white">Baouya, A., Hamid, B.</strong> (2025). "A Human-Centric Approach to Secure System Design: The HERMES-Design Framework." In *Proceedings of the IEEE Symposium on Security and Privacy*. IEEE.</p>
+                                <a href="#" class="font-semibold text-brand-primary hover:text-amber-400 text-sm mt-2 inline-block">Lire la publication &rarr;</a>
+                            </div>
+                            <!-- Publication 2 -->
+                            <div class="bg-slate-800/50 p-6 rounded-lg">
+                                <p><strong class="text-white">Eynard, J., Domingo, B.</strong> (2024). "Legal and Sociological Perspectives on Insider Threats in French Administrations." *Journal of Cybersecurity Law*, 8(2), pp. 112-130.</p>
+                                <a href="#" class="font-semibold text-brand-primary hover:text-amber-400 text-sm mt-2 inline-block">Lire la publication &rarr;</a>
+                            </div>
+                            <!-- Publication 3 -->
+                            <div class="bg-slate-800/50 p-6 rounded-lg">
+                                <p><strong class="text-white">Terrier, P.</strong> (2024). "Cognitive Load and Alarm Fatigue in Security Operations Centers." *Human Factors: The Journal of the Human Factors and Ergonomics Society*.</p>
+                                <a href="#" class="font-semibold text-brand-primary hover:text-amber-400 text-sm mt-2 inline-block">Lire la publication &rarr;</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

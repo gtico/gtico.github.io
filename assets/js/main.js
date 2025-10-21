@@ -80,3 +80,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Tabbed Content Logic for Research Page
+document.addEventListener('DOMContentLoaded', () => {
+    const tabsContainer = document.getElementById('tabs-nav');
+    if (tabsContainer) {
+        const tabButtons = tabsContainer.querySelectorAll('.tab-button');
+        const tabPanelsContainer = document.getElementById('tabs-content');
+        if (!tabPanelsContainer) return;
+
+        const tabPanels = Array.from(tabPanelsContainer.querySelectorAll('.tab-panel'));
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Deactivate all buttons
+                tabButtons.forEach(btn => btn.classList.remove('active-tab'));
+                
+                // Hide all panels
+                tabPanels.forEach(panel => panel.classList.add('hidden'));
+
+                // Activate clicked button
+                button.classList.add('active-tab');
+                
+                // Show corresponding panel
+                const targetPanelId = button.dataset.tab;
+                const targetPanel = document.getElementById(targetPanelId);
+                if (targetPanel) {
+                    targetPanel.classList.remove('hidden');
+                }
+            });
+        });
+    }
+});
