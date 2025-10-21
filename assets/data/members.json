@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Abdelhakim Baouya",
+    "role": "Enseignant-Chercheur UT2",
+    "description": "Spécialiste de la fiabilité et de la sécurité des systèmes critiques. Supervise le projet Hermes-Design.",
+    "photoUrl": "https://hbaouya.github.io/images/profile.jpg",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/hakim-baouya-247653b4/",
+      "website": "https://hbaouya.github.io/"
+    }
+  },
+  {
+    "name": "Brahim Hamid",
+    "role": "Enseignant-Chercheur UT2",
+    "description": "Les spécialités se situent à l’intersection de la sécurité, de la fiabilité et de l’ingénierie logicielle pour les systèmes distribués.",
+    "photoUrl": "https://www.irit.fr/~Brahim.Hamid/wp-content/uploads/sites/186/2023/04/brahim_p-scaled.jpg",
+    "socials": {
+      "linkedin": null,
+      "website": "https://www.irit.fr/~Brahim.Hamid/"
+    }
+  },
+  {
+    "name": "Jessica Eynard",
+    "role": "Enseignante-Chercheuse UT1",
+    "description": "Droit privé et sciences criminelles.",
+    "photoUrl": "https://www.ut-capitole.fr/medias/photo/eynard-jessica_1637318723386-jpg",
+    "socials": {
+      "linkedin": null,
+      "website": "https://www.ut-capitole.fr/accueil/recherche/les-chercheurs/mme-jessica-eynard"
+    }
+  },
+  {
+    "name": "Bruno Domingo",
+    "role": "Enseignant-Chercheur UT1",
+    "description": "Spécialiste des politiques publiques de sécurité, de la prévention de la délinquance et de la radicalisation.",
+    "photoUrl": null,
+    "socials": {
+      "linkedin": null,
+      "website": null
+    }
+  },
+  {
+    "name": "Frédéric Amblard",
+    "role": "Enseignant-Chercheur UT1",
+    "description": "Spécialiste en modélisation et simulation des systèmes complexes et des dynamiques sociales.",
+    "photoUrl": "https://www.irit.fr/wp-content/uploads/2016/03/Frederic-Amblard-200x200.jpg",
+    "socials": {
+      "linkedin": null,
+      "website": "https://www.irit.fr/~Frederic.Amblard/"
+    }
+  },
+  {
+    "name": "Patrice Terrier",
+    "role": "Enseignant-Chercheur UT2",
+    "description": "Spécialiste des processus de mémoire dans les interactions personne-système, en ergonomie cognitive et psychologie de l’activité.",
+    "photoUrl": "https://pbs.twimg.com/profile_images/695402153746169856/WvSx_gzN_200x200.png",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/patrice-terrier-a58b233a/",
+      "website": null
+    }
+  }
+]

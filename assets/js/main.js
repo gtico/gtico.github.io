@@ -270,6 +270,77 @@ async function loadPostdocs() {
     });
 }
 
+async function loadMembers() {
+    const container = document.getElementById('members-list');
+    if (!container) return;
+
+    const targetUrl = 'https://scout.univ-toulouse.fr/pub/docs/group-GT-ICO/web/membres/members.json';
+    const proxies = [
+        url => `https://corsproxy.io/?${encodeURIComponent(url)}`
+    ];
+    let members = null;
+    let lastError = null;
+
+    for (const proxyBuilder of proxies) {
+        const proxyUrl = proxyBuilder(targetUrl);
+        console.log(`🔄 Tentative de chargement des membres via : ${proxyUrl}`);
+        try {
+            const response = await fetch(proxyUrl);
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            members = await response.json();
+            if (Array.isArray(members)) break;
+        } catch (error) {
+            console.warn(`⚠️ Erreur avec proxy ${proxyUrl}:`, error);
+            lastError = error;
+        }
+    }
+
+    if (!members) {
+        console.error("❌ Impossible de charger les membres via les proxys :", lastError);
+        container.innerHTML = '<p class="text-red-400 text-center col-span-full">Impossible de charger les membres pour le moment.</p>';
+        return;
+    }
+
+    if (members.length === 0) {
+        container.innerHTML = '<p class="text-center col-span-full">Aucun membre à afficher pour le moment.</p>';
+        return;
+    }
+
+    container.innerHTML = '';
+    const defaultAvatar = `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzY0NzQ4QiI+PHBhdGggZD0iTTEyIDEyYzIuMjEgMCA0LTEuNzkgNC00cy0xLjc5LTQtNC00LTQgMS43OS00IDQgMS43OSA0IDQgNHptMCAyYy0yLjY3IDAtOCAxLjM0LTggNHYyaDE2di0yYzAtMi42Ni01LjMzLTQtOC00eiIvPjwvc3ZnPg==`;
+
+    members.forEach((member, index) => {
+        const memberElement = document.createElement('div');
+        const staggerDelay = (index % 4) + 1; // Stagger from 1 to 4
+        memberElement.className = `bg-slate-800/50 rounded-lg p-6 text-center group fade-in-up stagger-${staggerDelay} transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-brand-primary/20`;
+
+        const photoUrl = member.photoUrl || defaultAvatar;
+
+        let socialLinks = '';
+        if (member.socials) {
+            if (member.socials.linkedin) {
+                socialLinks += `<a href="${member.socials.linkedin}" target="_blank" rel="noopener noreferrer" class="hover:text-brand-primary transition-colors" aria-label="LinkedIn Profile"><i class="fab fa-linkedin fa-lg"></i></a>`;
+            }
+            if (member.socials.website) {
+                socialLinks += `<a href="${member.socials.website}" target="_blank" rel="noopener noreferrer" class="hover:text-brand-primary transition-colors" aria-label="Personal Website"><i class="fas fa-globe fa-lg"></i></a>`;
+            }
+        }
+
+        memberElement.innerHTML = `
+            <img src="${photoUrl}" alt="Photo de ${member.name}" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-700 group-hover:border-brand-primary transition-colors duration-300 object-cover">
+            <h3 class="text-xl font-bold text-white mb-1">${member.name}</h3>
+            <p class="text-brand-primary font-semibold mb-3">${member.role}</p>
+            <p class="text-slate-400 text-sm">${member.description}</p>
+            <div class="mt-4 flex justify-center space-x-4 text-slate-500">
+                ${socialLinks}
+            </div>
+        `;
+        container.appendChild(memberElement);
+        // We need to re-observe the new elements
+        observer.observe(memberElement);
+    });
+}
+
 
 // Main DOMContentLoaded listener
 document.addEventListener('DOMContentLoaded', () => {
@@ -278,15 +349,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (imageModal) {
         const modalImage = document.getElementById('modal-image');
         const modalCloseButton = document.getElementById('modal-close-button');
-        const pastEventImages = document.querySelectorAll('.past-event-image');
-
-        pastEventImages.forEach(img => {
-            img.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent default link behavior if wrapped in <a>
-                modalImage.src = img.src;
+        
+        // Use event delegation for images that might be loaded dynamically
+        document.body.addEventListener('click', (e) => {
+            if (e.target.classList.contains('past-event-image')) {
+                 e.preventDefault();
+                modalImage.src = e.target.src;
                 imageModal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling background
-            });
+                document.body.style.overflow = 'hidden';
+            }
         });
 
         const closeModal = () => {
@@ -295,7 +366,9 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = ''; // Restore scrolling
         };
 
-        modalCloseButton.addEventListener('click', closeModal);
+        if(modalCloseButton) {
+            modalCloseButton.addEventListener('click', closeModal);
+        }
 
         imageModal.addEventListener('click', (e) => {
             if (e.target === imageModal) {
@@ -340,4 +413,5 @@ document.addEventListener('DOMContentLoaded', () => {
     loadTheses();
     loadProjets();
     loadPostdocs();
+    loadMembers();
 });
