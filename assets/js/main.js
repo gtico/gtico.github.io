@@ -41,7 +41,6 @@ document.querySelectorAll('.fade-in-up').forEach(el => {
   observer.observe(el);
 });
 
-// Function to load publications from a JSON file
 async function loadPublications() {
     const container = document.getElementById('publications-list');
     // Only run this function if the container exists on the page
@@ -49,14 +48,20 @@ async function loadPublications() {
         return;
     }
 
+    // URL cible
+    const targetUrl = 'https://scout.univ-toulouse.fr/pub/docs/group-GT-ICO/web/publications/publications.json';
+    // Proxy AllOrigins : on encode l’URL cible
+    const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(targetUrl);
+
     try {
-        const response = await fetch('https://scout.univ-toulouse.fr/pub/docs/group-GT-ICO/web/publications/publications.json');
+        const response = await fetch(proxyUrl);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
+
         const publications = await response.json();
-        
-        if (publications.length === 0) {
+
+        if (!publications || publications.length === 0) {
             container.innerHTML = '<p>Aucune publication à afficher pour le moment.</p>';
             return;
         }
@@ -67,8 +72,14 @@ async function loadPublications() {
             const publicationElement = document.createElement('div');
             publicationElement.className = 'bg-slate-800/50 p-6 rounded-lg';
             publicationElement.innerHTML = `
-                <p><strong class="text-white">${pub.authors}</strong>. "${pub.title}", <em>${pub.journal}</em>. ${pub.year}.</p>
-                <a href="${pub.url}" target="_blank" rel="noopener noreferrer" class="font-semibold text-brand-primary hover:text-amber-400 text-sm mt-2 inline-block">Lire la publication &rarr;</a>
+                <p>
+                    <strong class="text-white">${pub.authors}</strong>. 
+                    "${pub.title}", <em>${pub.journal}</em>. ${pub.year}.
+                </p>
+                <a href="${pub.url}" target="_blank" rel="noopener noreferrer"
+                   class="font-semibold text-brand-primary hover:text-amber-400 text-sm mt-2 inline-block">
+                   Lire la publication &rarr;
+                </a>
             `;
             container.appendChild(publicationElement);
         });
@@ -79,6 +90,7 @@ async function loadPublications() {
     }
 }
 
+
 // Function to load theses from a JSON file
 async function loadTheses() {
     const container = document.getElementById('theses-list');
@@ -88,7 +100,7 @@ async function loadTheses() {
     }
 
     try {
-        const response = await fetch('https://scout.univ-toulouse.fr/pub/docs/group-GT-ICO/web/theses/theses.json');
+        const response = await fetch('assets/data/theses.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
