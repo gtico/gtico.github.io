@@ -1,3 +1,4 @@
+
 // Header scroll effect
 const header = document.getElementById('main-header');
 if (header) {
@@ -48,7 +49,7 @@ async function loadPublications() {
     }
 
     try {
-        const response = await fetch('https://scout.univ-toulouse.fr/pub/docs/group-GT-ICO/web/publications/publications.json');
+        const response = await fetch('assets/data/publications.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
