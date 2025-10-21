@@ -1,3 +1,5 @@
+
+
 // Header scroll effect
 const header = document.getElementById('main-header');
 if (header) {
