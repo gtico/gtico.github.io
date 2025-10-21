@@ -1,5 +1,3 @@
-
-
 // Header scroll effect
 const header = document.getElementById('main-header');
 if (header) {
@@ -79,6 +77,46 @@ async function loadPublications() {
     }
 }
 
+// Function to load theses from a JSON file
+async function loadTheses() {
+    const container = document.getElementById('theses-list');
+    // Only run this function if the container exists on the page
+    if (!container) {
+        return;
+    }
+
+    try {
+        const response = await fetch('https://scout.univ-toulouse.fr/pub/docs/group-GT-ICO/web/theses/theses.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const theses = await response.json();
+        
+        if (theses.length === 0) {
+            container.innerHTML = '<p>Aucune thèse à afficher pour le moment.</p>';
+            return;
+        }
+
+        // Clear existing content and build the list
+        container.innerHTML = ''; 
+        theses.forEach(thesis => {
+            const thesisElement = document.createElement('div');
+            thesisElement.className = 'bg-slate-800/50 p-6 rounded-lg';
+            thesisElement.innerHTML = `
+                <h4 class="text-xl font-bold text-white">${thesis.title}</h4>
+                <p class="text-brand-primary font-semibold text-sm mt-1 mb-2">Par ${thesis.author} - ${thesis.year}</p>
+                <p class="text-slate-400">${thesis.description}</p>
+                <p class="text-slate-500 text-sm mt-3"><strong>Direction :</strong> ${thesis.supervisors}</p>
+            `;
+            container.appendChild(thesisElement);
+        });
+
+    } catch (error) {
+        console.error("Impossible de charger les thèses:", error);
+        container.innerHTML = '<p class="text-red-400">Une erreur est survenue lors du chargement des thèses.</p>';
+    }
+}
+
 
 // Main DOMContentLoaded listener
 document.addEventListener('DOMContentLoaded', () => {
@@ -146,4 +184,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load dynamic content
     loadPublications();
+    loadTheses();
 });
