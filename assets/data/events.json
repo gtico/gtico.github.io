@@ -1,0 +1,67 @@
+[
+  {
+    "status": "upcoming",
+    "date": {
+      "day": "20",
+      "month": "OCT"
+    },
+    "category": "Lancement du GT-ICO",
+    "title": "Lancement officiel du GT-ICO",
+    "description": "Présentation de notre mission, de nos axes de recherche et de nos membres. Un moment clé pour dessiner le futur du facteur humain en cybersécurité.",
+    "details": {
+      "icon": "fas fa-clock",
+      "text": "13h00 - En ligne"
+    },
+    "action": {
+      "text": "Lien visio",
+      "link": "https://univ-tlse2.zoom.us/j/5410766813?pwd=dExjaEFycE1IK3FMeXFLWS9ZZnB6QT09"
+    }
+  },
+  {
+    "status": "upcoming",
+    "date": {
+      "day": "20",
+      "month": "NOV"
+    },
+    "category": "Annonce",
+    "title": "Lancement du nouveau site web du GT-ICO",
+    "description": "Découvrez notre nouvelle plateforme en ligne, conçue pour partager nos recherches, nos actualités et faciliter les échanges au sein de notre communauté.",
+    "details": {
+      "icon": "fas fa-globe",
+      "text": "En ligne"
+    },
+    "action": {
+      "text": "Explorer le site",
+      "link": "index.html"
+    }
+  },
+    {
+    "status": "upcoming",
+    "date": {
+      "day": "20",
+      "month": "NOV"
+    },
+    "category": "Annonce",
+    "title": "Table ronde : Cyber Sécurité et Facteur Humains",
+    "description": "Les facteurs humains en cybersécurité : présentation des travaux de thèse de Chris (Doctorant IRIT).",
+    "details": {
+      "icon": "fas fa-globe",
+      "text": "En ligne"
+    },
+    "action": {
+      "text": "Explorer le site",
+      "link": "index.html"
+    }
+  },
+  {
+    "status": "past",
+    "date": {
+      "month": "OCT",
+      "year": "2025"
+    },
+    "title": "Lancement officiel du GT-ICO",
+    "description": "Présentation de notre mission, de nos axes de recherche et de nos membres. Un moment clé pour dessiner le futur du facteur humain en cybersécurité.",
+    "imageUrl": "https://scout.univ-toulouse.fr/pub/docs/group-GT-ICO/web/2025/images/20102025.jpg",
+    "reportUrl": "https://scout.univ-toulouse.fr/pub/docs/group-GT-ICO/web/2025/rapport/reunion_201025.odt"
+  }
+]

@@ -341,6 +341,98 @@ async function loadMembers() {
     });
 }
 
+async function loadEvents() {
+    const upcomingContainer = document.getElementById('upcoming-events-list');
+    const pastContainer = document.getElementById('past-events-list');
+    if (!upcomingContainer || !pastContainer) return;
+
+    const targetUrl = 'https://scout.univ-toulouse.fr/pub/docs/group-GT-ICO/web/evenement/events.json';
+    const proxies = [
+        url => `https://corsproxy.io/?${encodeURIComponent(url)}`
+    ];
+    let events = null;
+    let lastError = null;
+
+    for (const proxyBuilder of proxies) {
+        const proxyUrl = proxyBuilder(targetUrl);
+        console.log(`🔄 Tentative de chargement des événements via : ${proxyUrl}`);
+        try {
+            const response = await fetch(proxyUrl);
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            events = await response.json();
+            if (Array.isArray(events)) break;
+        } catch (error) {
+            console.warn(`⚠️ Erreur avec proxy ${proxyUrl}:`, error);
+            lastError = error;
+        }
+    }
+
+    if (!events) {
+        console.error("❌ Impossible de charger les événements via les proxys :", lastError);
+        const errorMessage = '<p class="text-red-400">Impossible de charger les événements pour le moment.</p>';
+        upcomingContainer.innerHTML = errorMessage;
+        pastContainer.innerHTML = errorMessage;
+        return;
+    }
+
+    const upcomingEvents = events.filter(e => e.status === 'upcoming');
+    const pastEvents = events.filter(e => e.status === 'past');
+
+    // Populate upcoming events
+    if (upcomingEvents.length === 0) {
+        upcomingContainer.innerHTML = '<p>Aucun événement à venir pour le moment.</p>';
+    } else {
+        upcomingContainer.innerHTML = '';
+        upcomingEvents.forEach((event, index) => {
+            const staggerDelay = (index % 4) + 1;
+            const eventElement = document.createElement('div');
+            eventElement.className = `bg-slate-800/50 rounded-lg p-6 md:flex items-center gap-8 fade-in-up stagger-${staggerDelay} transform hover:shadow-brand-primary/20 hover:scale-[1.02] transition-all duration-300`;
+            eventElement.innerHTML = `
+                <div class="text-center flex-shrink-0 w-24 mx-auto md:mx-0 mb-4 md:mb-0">
+                    <p class="text-5xl font-bold text-brand-primary">${event.date.day}</p>
+                    <p class="text-lg text-slate-400">${event.date.month}</p>
+                </div>
+                <div class="flex-grow">
+                    <p class="text-sm text-brand-secondary font-semibold mb-1">${event.category}</p>
+                    <h3 class="text-xl font-bold text-white mb-2">${event.title}</h3>
+                    <p class="text-slate-400 text-sm mb-4">${event.description}</p>
+                    <div class="flex items-center text-sm text-slate-500 gap-4">
+                        <span><i class="${event.details.icon} mr-1"></i>${event.details.text}</span>
+                    </div>
+                </div>
+                <div class="mt-4 md:mt-0 flex-shrink-0">
+                    <a href="${event.action.link}" target="_blank" rel="noopener noreferrer" class="px-5 py-2 text-sm font-semibold text-white bg-brand-primary hover:bg-amber-400 rounded-md shadow-md transition-all duration-300">${event.action.text}</a>
+                </div>
+            `;
+            upcomingContainer.appendChild(eventElement);
+            observer.observe(eventElement);
+        });
+    }
+
+    // Populate past events
+    if (pastEvents.length === 0) {
+        pastContainer.innerHTML = '<p class="col-span-full">Aucun événement passé à afficher pour le moment.</p>';
+    } else {
+        pastContainer.innerHTML = '';
+        pastEvents.forEach((event, index) => {
+            const staggerDelay = (index % 3) + 1;
+            const eventElement = document.createElement('div');
+            eventElement.className = `bg-slate-800/50 rounded-lg overflow-hidden group fade-in-up stagger-${staggerDelay}`;
+            eventElement.innerHTML = `
+                <img src="${event.imageUrl}" alt="Image de l'événement ${event.title}" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 past-event-image cursor-pointer">
+                <div class="p-6">
+                    <p class="text-sm text-brand-primary font-semibold mb-2">${event.date.month} ${event.date.year}</p>
+                    <h3 class="text-lg font-bold text-white mb-2">${event.title}</h3>
+                    <p class="text-sm text-slate-400 mb-4">${event.description}</p>
+                    <a href="${event.reportUrl}" target="_blank" rel="noopener noreferrer" class="font-semibold text-brand-primary hover:text-amber-400">Lire le compte rendu complet &rarr;</a>
+                </div>
+            `;
+            pastContainer.appendChild(eventElement);
+            observer.observe(eventElement);
+        });
+    }
+}
+
 
 // Main DOMContentLoaded listener
 document.addEventListener('DOMContentLoaded', () => {
@@ -414,4 +506,5 @@ document.addEventListener('DOMContentLoaded', () => {
     loadProjets();
     loadPostdocs();
     loadMembers();
+    loadEvents();
 });
