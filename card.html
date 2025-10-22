@@ -102,7 +102,7 @@
                         
                         <div class="w-full pt-6 mt-6 border-t border-slate-700">
                             <p class="text-sm text-slate-500 mb-3">Supporté par</p>
-                            <img src="https://www.ico-occitanie.fr/wp-content/uploads/2023/11/logo-ICO.svg" alt="Logo ICO" class="h-16 mx-auto">
+                            <img src="assets/images/logo-ICO.svg" alt="Logo ICO" class="h-16 mx-auto">
                         </div>
                     </div>
                 </div>
@@ -169,30 +169,51 @@
             const card = document.getElementById('logo-card');
             const downloadButton = this;
 
-            // Temporarily change button text
             const originalText = downloadButton.textContent;
             downloadButton.textContent = 'Génération en cours...';
             downloadButton.disabled = true;
 
-            html2canvas(card, {
-                backgroundColor: '#0F172A', // Explicitly set background
-                scale: 3, // Higher resolution
-                useCORS: true, // Needed for external assets
-            }).then(canvas => {
-                const link = document.createElement('a');
-                link.download = 'gt-ico-member-card.png';
-                link.href = canvas.toDataURL('image/png');
-                document.body.appendChild(link); // Append to body to ensure it's clickable in all browsers
-                link.click();
-                document.body.removeChild(link); // Clean up the DOM
-                
-                // Revert button text
-                downloadButton.textContent = originalText;
-                downloadButton.disabled = false;
-            }).catch(err => {
-                console.error("Erreur lors de la génération de l'image:", err);
-                alert("Une erreur est survenue. Veuillez réessayer. Consultez la console pour plus de détails.");
-                // Revert button text on error
+            // --- Robust image loading ---
+            const images = card.querySelectorAll('img');
+            const promises = [...images].map(img => {
+                return new Promise((resolve, reject) => {
+                    // If the image is already loaded (e.g. from cache) and has dimensions
+                    if (img.complete && img.naturalHeight !== 0) {
+                        resolve();
+                    } else {
+                        // Otherwise, wait for it to load
+                        img.onload = () => resolve();
+                        img.onerror = () => reject(`Impossible de charger l'image : ${img.src}`);
+                    }
+                });
+            });
+
+            Promise.all(promises).then(() => {
+                // All images are loaded, now generate the canvas
+                html2canvas(card, {
+                    backgroundColor: '#0F172A', // Explicitly set background
+                    scale: 3, // Higher resolution
+                    useCORS: true, // Needed for CORS-enabled assets like the texture
+                }).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = 'gt-ico-member-card.png';
+                    link.href = canvas.toDataURL('image/png');
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    
+                    downloadButton.textContent = originalText;
+                    downloadButton.disabled = false;
+
+                }).catch(err => {
+                    console.error("Erreur lors de la génération de l'image:", err);
+                    alert("Une erreur est survenue lors de la génération de l'image. Veuillez réessayer.");
+                    downloadButton.textContent = originalText;
+                    downloadButton.disabled = false;
+                });
+            }).catch(error => {
+                console.error("Erreur de chargement d'image:", error);
+                alert("Certaines images n'ont pas pu être chargées, impossible de générer la carte.");
                 downloadButton.textContent = originalText;
                 downloadButton.disabled = false;
             });
