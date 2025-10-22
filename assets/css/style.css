@@ -12,6 +12,47 @@
 .stagger-3 { animation-delay: 300ms; }
 .stagger-4 { animation-delay: 400ms; }
 
+/* Main Navigation Link Styles */
+.nav-link {
+  color: #CBD5E1; /* slate-300 */
+  transition: color 0.3s ease;
+  position: relative;
+  padding-bottom: 4px;
+}
+.nav-link:hover {
+  color: #F59E0B; /* brand-primary */
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  right: 50%;
+  height: 2px;
+  background-color: #F59E0B; /* brand-primary */
+  transition: all 0.3s ease-out;
+}
+.nav-link:hover::after {
+  left: 0;
+  right: 0;
+}
+
+.nav-link-active {
+  color: #F59E0B; /* brand-primary */
+  position: relative;
+  padding-bottom: 4px;
+}
+.nav-link-active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #F59E0B; /* brand-primary */
+}
+
+
 /* Tab navigation styles */
 .tab-button {
   background-color: transparent;
