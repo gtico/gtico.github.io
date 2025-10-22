@@ -23,7 +23,8 @@
         .gradient-border {
             border: 2px solid;
             border-image-slice: 1;
-            border-image-source: linear-gradient(to bottom right, #F59E0B, #6366F1);
+            /* Updated gradient to incorporate ICO's red */
+            border-image-source: linear-gradient(to bottom right, #F59E0B, #d41e24);
         }
     </style>
 </head>
@@ -44,7 +45,7 @@
                 
                 <div class="w-full pt-6 mt-6 border-t border-slate-700">
                     <p class="text-sm text-slate-500 mb-3">Supported by</p>
-                    <img src="https://www.ico-occitanie.fr/wp-content/uploads/2023/11/logo-ICO.svg" alt="Logo ICO" class="h-16 mx-auto">
+                    <img src="assets/images/logo-ICO.svg" alt="Logo ICO" class="h-16 mx-auto">
                 </div>
             </div>
         </div>
@@ -66,27 +67,30 @@
             const downloadButton = this;
 
             // Temporarily change button text
+            const originalText = downloadButton.textContent;
             downloadButton.textContent = 'Génération en cours...';
             downloadButton.disabled = true;
 
             html2canvas(card, {
-                backgroundColor: '#0F172A', // Set background color for the canvas
-                scale: 3, // Increase scale for higher resolution
-                useCORS: true // Important for external images
+                backgroundColor: '#0F172A', // Explicitly set background
+                scale: 3, // Higher resolution
+                useCORS: true, // Needed for external assets
             }).then(canvas => {
                 const link = document.createElement('a');
                 link.download = 'gt-ico-member-card.png';
                 link.href = canvas.toDataURL('image/png');
+                document.body.appendChild(link); // Append to body to ensure it's clickable in all browsers
                 link.click();
+                document.body.removeChild(link); // Clean up the DOM
                 
                 // Revert button text
-                downloadButton.textContent = 'Télécharger la Carte (.png)';
+                downloadButton.textContent = originalText;
                 downloadButton.disabled = false;
             }).catch(err => {
                 console.error("Erreur lors de la génération de l'image:", err);
-                alert("Une erreur est survenue. Veuillez réessayer.");
+                alert("Une erreur est survenue. Veuillez réessayer. Consultez la console pour plus de détails.");
                 // Revert button text on error
-                downloadButton.textContent = 'Télécharger la Carte (.png)';
+                downloadButton.textContent = originalText;
                 downloadButton.disabled = false;
             });
         });
