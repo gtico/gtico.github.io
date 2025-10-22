@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Carte de Membre - GT-ICO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-primary': '#F59E0B', // amber-500
+              'brand-secondary': '#6366F1', // indigo-500
+              'brand-dark': '#0F172A', // slate-900
+              'brand-light': '#F1F5F9', // slate-100
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+        .gradient-border {
+            border: 2px solid;
+            border-image-slice: 1;
+            border-image-source: linear-gradient(to bottom right, #F59E0B, #6366F1);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark font-sans">
+    <div class="min-h-screen flex flex-col items-center justify-center p-4">
+        
+        <!-- The Card to be downloaded -->
+        <div id="logo-card" class="w-full max-w-md bg-slate-900 rounded-2xl shadow-2xl shadow-brand-primary/10 overflow-hidden relative p-8 gradient-border">
+            <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-[0.02]"></div>
+            <div class="relative flex flex-col items-center justify-between h-full text-center">
+                
+                <div class="flex-grow flex flex-col items-center justify-center">
+                    <p class="text-lg font-semibold text-slate-300 tracking-wider mb-6">Member of the</p>
+                    <img src="assets/images/logo.svg" alt="GT-ICO Logo" class="w-48 h-48 mb-6">
+                    <h1 class="text-3xl font-bold text-white tracking-wider">GT-ICO</h1>
+                    <p class="text-base text-slate-400">Facteur Humain & Cybersécurité</p>
+                </div>
+                
+                <div class="w-full pt-6 mt-6 border-t border-slate-700">
+                    <p class="text-sm text-slate-500 mb-3">Supported by</p>
+                    <img src="https://www.ico-occitanie.fr/wp-content/uploads/2023/11/logo-ICO.svg" alt="Logo ICO" class="h-16 mx-auto">
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Button -->
+        <div class="mt-8 text-center">
+            <button id="download-btn" class="px-8 py-3 font-semibold text-brand-dark bg-brand-primary hover:bg-amber-400 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-amber-300">
+                Télécharger la Carte (.png)
+            </button>
+            <p class="text-slate-500 text-sm mt-4">L'image sera téléchargée en haute résolution.</p>
+            <a href="developpeur.html" class="text-brand-primary hover:text-amber-400 mt-2 inline-block">&larr; Retour</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoVBL5gI9kLmbG4dFVikKx6jeEWWBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        document.getElementById('download-btn').addEventListener('click', function() {
+            const card = document.getElementById('logo-card');
+            const downloadButton = this;
+
+            // Temporarily change button text
+            downloadButton.textContent = 'Génération en cours...';
+            downloadButton.disabled = true;
+
+            html2canvas(card, {
+                backgroundColor: '#0F172A', // Set background color for the canvas
+                scale: 3, // Increase scale for higher resolution
+                useCORS: true // Important for external images
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'gt-ico-member-card.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                
+                // Revert button text
+                downloadButton.textContent = 'Télécharger la Carte (.png)';
+                downloadButton.disabled = false;
+            }).catch(err => {
+                console.error("Erreur lors de la génération de l'image:", err);
+                alert("Une erreur est survenue. Veuillez réessayer.");
+                // Revert button text on error
+                downloadButton.textContent = 'Télécharger la Carte (.png)';
+                downloadButton.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>

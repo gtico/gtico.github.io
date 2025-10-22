@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Développeur - GT-ICO Facteur Humain et Cybersécurité</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-primary': '#F59E0B', // amber-500
+              'brand-secondary': '#6366F1', // indigo-500
+              'brand-dark': '#0F172A', // slate-900
+              'brand-light': '#F1F5F9', // slate-100
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+  <body class="bg-brand-dark text-brand-light font-sans leading-relaxed">
+    <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-5"></div>
+    <div class="relative z-10">
+      <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 bg-brand-dark/90 backdrop-blur-sm shadow-lg shadow-brand-secondary/10">
+        <div class="container mx-auto px-4">
+          <div class="flex items-center justify-between h-20">
+            <a href="index.html" class="flex items-center space-x-2">
+              <img src="assets/images/logo.svg" alt="GT-ICO Logo" class="w-10 h-10">
+              <span class="text-xl font-bold tracking-wider text-white">GT-ICO</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-6">
+              <a href="index.html" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors duration-300">Accueil</a>
+              <a href="recherche.html" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors duration-300">Recherche</a>
+              <a href="membre.html" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors duration-300">Membres</a>
+              <a href="evenement.html" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors duration-300">Événements</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-slate-300 hover:text-brand-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+            </button>
+          </div>
+          <!-- Mobile Menu -->
+          <div id="mobile-menu" class="hidden md:hidden py-4">
+            <a href="index.html" class="block py-2 text-slate-300 hover:text-brand-primary">Accueil</a>
+            <a href="recherche.html" class="block py-2 text-slate-300 hover:text-brand-primary">Recherche</a>
+            <a href="membre.html" class="block py-2 text-slate-300 hover:text-brand-primary">Membres</a>
+            <a href="evenement.html" class="block py-2 text-slate-300 hover:text-brand-primary">Événements</a>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- Page Header Section -->
+        <section class="relative h-[40vh] flex items-center justify-center text-center overflow-hidden bg-slate-900">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-dark via-slate-800 to-brand-secondary/30 opacity-80"></div>
+            <div class="relative container mx-auto px-4 z-10">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4 fade-in-up">
+                    Le Développeur
+                </h1>
+                <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto fade-in-up stagger-1">
+                    À propos du créateur et responsable de ce site web.
+                </p>
+            </div>
+        </section>
+
+        <!-- Developer Content Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="bg-slate-800/50 rounded-lg p-8 md:p-12 shadow-xl grid md:grid-cols-3 gap-8 items-center fade-in-up">
+                    <div class="md:col-span-1 text-center">
+                        <img src="https://hbaouya.github.io/images/profile.jpg" alt="Photo de Abdelhakim Baouya" class="w-40 h-40 rounded-full mx-auto mb-4 border-4 border-brand-primary object-cover">
+                        <h2 class="text-2xl font-bold text-white">Abdelhakim Baouya</h2>
+                        <p class="text-brand-primary font-semibold">Enseignant-Chercheur UT2</p>
+                         <div class="mt-4 flex justify-center space-x-4 text-slate-400">
+                            <a href="https://www.linkedin.com/in/hakim-baouya-247653b4/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-primary transition-colors text-xl"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://hbaouya.github.io/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-primary transition-colors text-xl"><i class="fas fa-globe"></i></a>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 text-slate-300">
+                        <p class="mb-4">Ce site web a été conçu et développé par <strong class="text-white">Abdelhakim Baouya</strong>, membre fondateur du GT-ICO et enseignant-chercheur à l'Université Toulouse - Jean Jaurès (UT2) et rattaché à l'IRIT.</p>
+                        <p class="mb-4">Passionné par la fiabilité et la sécurité des systèmes critiques, il a mis en place cette plateforme pour servir de vitrine aux activités du groupe de travail, faciliter la diffusion des recherches et renforcer les collaborations.</p>
+                        <p>Pour toute question ou suggestion concernant le site, n'hésitez pas à prendre contact.</p>
+                    </div>
+                </div>
+
+                <!-- Card Generator Link -->
+                <div class="text-center mt-20 fade-in-up stagger-1">
+                    <h3 class="text-2xl font-bold text-white mb-4">Ressources pour les Membres</h3>
+                    <p class="text-slate-400 max-w-xl mx-auto mb-8">Un outil pour générer une carte de membre officielle à utiliser sur vos supports professionnels.</p>
+                    <a href="card.html" class="px-8 py-3 font-semibold text-brand-dark bg-brand-primary hover:bg-amber-400 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+                        Générer ma carte de membre
+                    </a>
+                </div>
+            </div>
+        </section>
+
+      </main>
+
+      <footer class="bg-slate-900/70 border-t border-slate-700/50 mt-20 pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-1 mb-6 md:mb-0">
+                     <a href="index.html" class="flex items-center space-x-2">
+                        <img src="assets/images/logo.svg" alt="GT-ICO Logo" class="w-8 h-8">
+                        <span class="text-lg font-bold tracking-wider text-white">GT-ICO</span>
+                    </a>
+                    <p class="text-slate-400 mt-4 text-sm">Groupe de Travail sur le Facteur Humain et la Cybersécurité.</p>
+                </div>
+                <div class="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-semibold text-white mb-4">Accès Rapides</h4>
+                        <ul class="space-y-2">
+                            <li><a href="index.html" class="text-slate-400 hover:text-brand-primary text-sm">Accueil</a></li>
+                            <li><a href="recherche.html" class="text-slate-400 hover:text-brand-primary text-sm">Recherche</a></li>
+                            <li><a href="membre.html" class="text-slate-400 hover:text-brand-primary text-sm">Membres</a></li>
+                            <li><a href="evenement.html" class="text-slate-400 hover:text-brand-primary text-sm">Événements</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-white mb-4">À Propos</h4>
+                        <ul class="space-y-2">
+                           <li><a href="mentions-legales.html" class="text-slate-400 hover:text-brand-primary text-sm">Mentions légales</a></li>
+                            <li><a href="developpeur.html" class="text-slate-400 hover:text-brand-primary text-sm">Developpeur</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-slate-700/50 pt-8 text-center">
+                <div class="mb-8">
+                    <p class="text-sm text-slate-400 mb-4">Supporté par l'Institut de Cybersécurité en Occitanie</p>
+                    <div class="flex justify-center items-center space-x-8">
+                        <a href="https://www.ico-occitanie.fr/" target="_blank" rel="noopener noreferrer" class="inline-block transition-opacity hover:opacity-80">
+                            <img src="https://www.ico-occitanie.fr/wp-content/uploads/2024/04/LOGO-DC-NB.svg" alt="Logo Institut de Cybersécurité en Occitanie" class="h-16 filter invert">
+                        </a>
+                        <a href="https://www.ico-occitanie.fr/" target="_blank" rel="noopener noreferrer" class="inline-block transition-opacity hover:opacity-80 bg-red-600 p-2 rounded-lg">
+                            <img src="https://www.ico-occitanie.fr/wp-content/uploads/2023/11/logo-ICO.svg" alt="Logo ICO" class="h-16">
+                        </a>
+                    </div>
+                </div>
+                <p class="text-slate-500 text-sm">&copy; 2025 GT-ICO. Tous droits réservés.</p>
+            </div>
+        </div>
+      </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-fzff82+8pzHnwA1mQ0dzz9/E0B+ZRizq08yZfya66INZBz86qKTCt9MLU0NCNIgaMJCgeyhujhasnFUsYMsi0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>
