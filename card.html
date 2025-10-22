@@ -90,7 +90,6 @@
                 
                 <!-- The Card to be downloaded -->
                 <div id="logo-card" class="w-full max-w-md bg-slate-900 rounded-2xl shadow-2xl shadow-brand-primary/10 overflow-hidden relative p-8 gradient-border fade-in-up stagger-2">
-                    <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-[0.02]"></div>
                     <div class="relative flex flex-col items-center justify-between h-full text-center">
                         
                         <div class="flex-grow flex flex-col items-center justify-center">
@@ -177,7 +176,7 @@
             const images = card.querySelectorAll('img');
             const promises = [...images].map(img => {
                 return new Promise((resolve, reject) => {
-                    // If the image is already loaded (e.g. from cache) and has dimensions
+                    // If the image is already loaded (e.g. from cache)
                     if (img.complete && img.naturalHeight !== 0) {
                         resolve();
                     } else {
@@ -193,7 +192,7 @@
                 html2canvas(card, {
                     backgroundColor: '#0F172A', // Explicitly set background
                     scale: 3, // Higher resolution
-                    useCORS: true, // Needed for CORS-enabled assets like the texture
+                    useCORS: true,
                 }).then(canvas => {
                     const link = document.createElement('a');
                     link.download = 'gt-ico-member-card.png';
