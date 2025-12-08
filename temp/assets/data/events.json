@@ -32,7 +32,7 @@
     },
     "action": {
       "text": "Explorer le site",
-      "link": "index.html"
+      "link": "/"
     }
   },
     {
@@ -50,7 +50,7 @@
     },
     "action": {
       "text": "Explorer le site",
-      "link": "index.html"
+      "link": "/"
     }
   },
   {
