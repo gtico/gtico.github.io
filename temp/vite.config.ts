@@ -6,8 +6,8 @@ import { dirname, resolve } from 'path'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-// https://vitejs.dev/config/
 export default defineConfig({
+  base: '/gtico.github.io/',
   plugins: [react()],
   resolve: {
     alias: {
@@ -15,3 +15,4 @@ export default defineConfig({
     }
   }
 })
+
