@@ -1,6 +1,6 @@
 export async function loadData(targetUrl: string) {
     const proxies = [
-        (url: string) => `https://corsproxy.io/?${encodeURIComponent(url)}`
+        (url: string) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`
     ];
 
     let data = null;
